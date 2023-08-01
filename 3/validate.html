@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>HTML form</h1>
+    <form>
+        <input id="email id" type="email" placeholder="example@gmail.com">
+        <br><br>
+        <input id="password" type="password" placeholder="password">
+        <br><br>
+        <input id="submit" type="submit" value="submit" onclick="validate()">
+    </form>
+    <script>
+        function validate(){
+            let email = document.getElementById("email id").value;
+            let password = document.getElementById("password").value;
+            if(email == "" || password == ""){
+                alert("Please fill all the fields");
+            }
+            else{
+                alert("Login successful");
+            }
+        }
+    </script> 
+</body>
+</html>
