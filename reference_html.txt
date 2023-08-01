@@ -1,0 +1,4 @@
+# for Tables
+<table></table> for the table creation
+<tr></tr> for table row every thing that is writtne in that is made into rows
+<th></th> for table header <td></td> for data display
