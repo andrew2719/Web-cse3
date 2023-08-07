@@ -4,35 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>HTML form</h1>
     <form>
-        <input id="email id" type="email" placeholder="example@gmail.com">
-        <br><br>
-        <input id="password" type="password" placeholder="password">
-        <br><br>
-        <input id="submit" type="submit" value="submit" onclick="validate()">
+        <label for="email">Email:</label>
+        <input type="email" id="email id" name="email" required><br>
 
-        <!-- make a dropdown menu with a name for the dropdown as dropdown -->
-        <!-- user can identify the select name using the dropdown as on the dropdown -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
 
-        <table>
-            <tr>
-              <th>Header 1</th>
-              <th>Header 2</th>
-            </tr>
-            <tr>
-              <td>Data 1</td>
-              <td>Data 2</td>
-            </tr>
-            <tr>
-              <td>Data 3</td>
-              <td>Data 4</td>
-            </tr>
-          </table>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
 
+        <label>Interests:</label>
+        <input type="checkbox" id="interest1" name="interests" value="interest1">
+        <label for="interest1">Interest 1</label>
+        <input type="checkbox" id="interest2" name="interests" value="interest2">
+        <label for="interest2">Interest 2</label>
+        <input type="checkbox" id="interest3" name="interests" value="interest3">
+        <label for="interest3">Interest 3</label><br>
 
+        <label for="description">Tell us about yourself:</label><br>
+        <textarea id="description" name="description" rows="4" cols="40"></textarea><br>
+
+        <label for="file">Upload a file:</label>
+        <input type="file" id="file" name="file"><br>
+
+        <!-- <input type="submit" value="Submit"> -->
+        <input type="submit" value="submit" onclick="validate()">
+        <input type="reset" value="Reset">
     </form>
     <script>
         function validate(){
