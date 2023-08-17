@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Button Color Change</title>
-  <style>
-    button {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
-    #red {
-      background-color: red;
-    }
-
-    #blue {
-      background-color: blue;
-    }
-
-    body {
-      background-color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <title>Hovering Dropdown</title>
 </head>
 <body>
-  <button id="red" onclick="document.body.style.backgroundColor = 'red'">Red</button>
-  <button id="blue" onclick="document.body.style.backgroundColor = 'blue'">Blue</button>
+    <div class="dropdown">
+        <button class="dropbtn">Hover Me</button>
+        <div class="dropdown-content">
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+        </div>
+    </div>
 </body>
 </html>
