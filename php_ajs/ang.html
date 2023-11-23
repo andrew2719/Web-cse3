@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Validation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="loginApp" ng-controller="loginCtrl">
+    <h2>Login Form</h2>
+    <form name="loginForm" ng-submit="submitForm()" novalidate>
+        Email: <input type="email" name="email" ng-model="user.email" required><br>
+        <span ng-show="loginForm.email.$dirty && loginForm.email.$error.required">Email is required.</span>
+        <span ng-show="loginForm.email.$dirty && loginForm.email.$error.email">Invalid email address.</span><br>
+
+        Password: <input type="password" name="password" ng-model="user.password" ng-minlength="6" required><br>
+        <span ng-show="loginForm.password.$dirty && loginForm.password.$error.required">Password is required.</span>
+        <span ng-show="loginForm.password.$dirty && loginForm.password.$error.minlength">Password must be at least 6 characters long.</span><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        var app = angular.module('loginApp', []);
+        app.controller('loginCtrl', function($scope) {
+            $scope.submitForm = function() {
+                if ($scope.loginForm.$valid) {
+                    alert('Form is valid');
+                } else {
+                    alert('Form is invalid');
+                }
+            };
+        });
+    </script>
+</body>
+</html>

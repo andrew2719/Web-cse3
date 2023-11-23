@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Validation</title>
+</head>
+<body>
+    <h2>Login Form</h2>
+    <form id="loginForm">
+        Email: <input type="email" id="email"><br>
+        Password: <input type="password" id="password"><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            var validEmail = emailRegex.test(email);
+            var validPassword = password.length >= 6;
+
+            if (!validEmail) {
+                alert("Please enter a valid email.");
+                return false;
+            }
+
+            if (!validPassword) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        };
+    </script>
+</body>
+</html>
