@@ -1,0 +1,78 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class EmployeeDatabaseSetup {
+    public static void main(String[] args) {
+        try {
+            // Load and register JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Establish connection
+            String jdbcUrl = "jdbc:mysql://localhost:3306/company";
+            String username = "your_username";
+            String password = "your_password";
+            Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+
+            // Create statement
+            Statement statement = connection.createStatement();
+
+            // Create employee table
+            String createTableQuery = "CREATE TABLE employees ("
+                    + "id INT PRIMARY KEY AUTO_INCREMENT,"
+                    + "name VARCHAR(255),"
+                    + "age INT,"
+                    + "designation VARCHAR(255)"
+                    + ")";
+            statement.executeUpdate(createTableQuery);
+            System.out.println("Employee table created successfully.");
+
+            // Insert data into the employee table
+            String insertDataQuery = "INSERT INTO employees (name, age, designation) VALUES "
+                    + "('John Doe', 30, 'Software Engineer'),"
+                    + "('Jane Smith', 25, 'Data Analyst'),"
+                    + "('Bob Johnson', 35, 'Project Manager')";
+            statement.executeUpdate(insertDataQuery);
+            System.out.println("Data inserted into the employee table.");
+
+            // Close resources
+            statement.close();
+            connection.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+------------------
+
+<%@ page import="java.sql.Connection, java.sql.DriverManager, java.sql.Statement, java.sql.ResultSet" %>
+
+<%
+   try {
+      String jdbcUrl = "jdbc:mysql://localhost:3306/your_database";
+      String username = "your_username";
+      String password = "your_password";
+
+      Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+
+      Statement statement = connection.createStatement();
+      String sqlQuery = "SELECT * FROM your_table";
+      ResultSet resultSet = statement.executeQuery(sqlQuery);
+
+      while (resultSet.next()) {
+         // Retrieve and process data
+         String column1Value = resultSet.getString("column1");
+         int column2Value = resultSet.getInt("column2");
+
+         // Output the data or perform further processing
+         out.println("Column1: " + column1Value + ", Column2: " + column2Value);
+      }
+
+      resultSet.close();
+      statement.close();
+      connection.close();
+   } catch (Exception e) {
+      e.printStackTrace();
+   }
+%>
